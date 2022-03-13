@@ -43,7 +43,7 @@ class pankin:
         self.posY = posY
         self.isDead = isDead
     def __del__(self):
-        print("Pumpkin Deleted")
+        pass
     def draw(self):
         pygame.draw.rect(screen, (0, 150, 0), ((self.posX - 10), (self.posY - 70), 20, 25))
         pygame.draw.circle(screen, (200, 100, 0), (self.posX, self.posY), 50)
@@ -51,20 +51,11 @@ class pankin:
         pygame.draw.arc(screen, (0, 0, 0), ((self.posX - 25), (self.posY - 20), 20, 20), 0, math.pi, 2)
         pygame.draw.arc(screen, (0, 0, 0), (self.posX, (self.posY - 20), 20, 20), 0, math.pi, 2)
     def CircleCollide(self, x, y):
-         return math.sqrt(((self.posX-x) * (self.posX-x)) + ((self.posY-y) * (self.posY-y)))
-    
-    #def CircleCollide(self, x, y, r):
-    #    if math.sqrt(((self.posX-x) * (self.posX-x)) + ((self.posY-y) * (self.posY-y))) < (r + 50):
-    #        return True
-    #    else:
-    #        return False
+        return math.sqrt(((self.posX-x) * (self.posX-x)) + ((self.posY-y) * (self.posY-y)))
     def kill(self):
         self.isDead = True
     def checkDead(self):
         return self.isDead
-   
-
-
 
 patch = []
 
@@ -137,14 +128,11 @@ while doExit == False:
             bVy *= -1
 
     #move things
-    playerX += pVelx;
+    playerX += pVelx
     by += bVy
     bx += bVx
     if autoPlay == True:
         playerX = bx - 100
-   
-   
-           
 
     #render
     screen.fill((0,0,0))
@@ -175,3 +163,4 @@ while doExit == False:
             if x.isDead == False:
                 x.draw()
     pygame.display.flip()
+    
